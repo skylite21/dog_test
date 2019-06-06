@@ -3,12 +3,20 @@ import './css/style.css';
 import './index.html';
 
 import SearchImage from './searchImageComponent/searchImageComponent.js';
+import ListBreed from './listBreedsComponent/listBreedsComponent.js';
 
 
-
+// itt példányosítjuk a searchImage class-t és 
+// a class által létrehozott objektum példány
+// neve dogSearchImage lesz:
 const dogImageSearch = new SearchImage;
+
 dogImageSearch.render();
 // dogImageSearch.getResults('papillon');
+
+// class-t mindig nagy betűvel kezdünk, minden mást meg nem.
+const listBreed = new ListBreed;
+listBreed.render();
 
 
 
