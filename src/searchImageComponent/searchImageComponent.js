@@ -3,7 +3,8 @@ import './searchImageComponent.css';
 class SearchImage {
   // tartalom törlésére
   clearContent() {
-    
+    const content = document.querySelector('#content');
+    content.innerHTML = '';
   }
   // hiba üzenet megjelenítésére
   displayError(message) {
@@ -20,7 +21,7 @@ class SearchImage {
     // az img változónak van src attribútuma, mert az img tag-nek is van. 
     img.src = data.message[Math.floor(Math.random() * data.message.length )];
     // kiválasztunk egy szülő elemet és abba betöltjük az img tag-et amit létrehoztunk az előbb
-    document.querySelector('#images').appendChild(img);
+    document.querySelector('#content').appendChild(img);
   }
   render() {
     // create the input field and the buton
@@ -37,6 +38,9 @@ class SearchImage {
 
       // ha meg akarjuk szüntetni egy html elem alapértelmezett működését:
       event.preventDefault();
+      // a this kulcsszó arra az objektumra utal amit majd létrehozunk
+      // ennek a class-nak a példányaként
+      this.clearContent();
       // console.log('button is clicked');
       // console.log(event);
       this.getResults(document.querySelector('#dogSearchInput').value);
