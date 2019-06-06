@@ -1,29 +1,7 @@
 import './searchImageComponent.css';
+import ContentComponent from '../contentComponent/contentComponent.js';
 // #LearnAbout: oop vs composition , vagy composition over inheritance...!!!
-class SearchImage {
-  // tartalom törlésére
-  clearContent() {
-    const content = document.querySelector('#content');
-    content.innerHTML = '';
-  }
-
-  clearErrors() {
-    const errors = document.querySelector('.errors');
-    //  igy is lehet törölni elemet, és ez gyorsabb működést eredményez
-    if (errors.firstChild) {
-      errors.removeChild(errors.firstChild);
-    }
-  }
-  // hiba üzenet megjelenítésére
-  // Single responsibility principle: 
-  displayError(message) {
-    this.clearErrors();
-    const popupMessage = document.createElement('h2');
-    popupMessage.classList.add('error-message');
-    popupMessage.innerHTML = message;
-    document.querySelector('.errors').appendChild(popupMessage);
-  }
-
+class SearchImage extends ContentComponent {
   async getResults(dogbreed) {
     // '', null, undefined: false
     if (!dogbreed) {
@@ -41,8 +19,6 @@ class SearchImage {
       // `` : multiline string,  ${valtozo} -> template literal
       urlString = `https://dog.ceo/api/breed/${dogbreed[1]}/${dogbreed[0]}/images`;
     }
-
-    
 
     const response = await fetch(urlString);
     // console.log('response:  ',response);
