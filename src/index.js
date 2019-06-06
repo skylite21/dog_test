@@ -8,7 +8,7 @@ import SearchImage from './searchImageComponent/searchImageComponent.js';
 
 const dogImageSearch = new SearchImage;
 dogImageSearch.render();
-dogImageSearch.getResults('papillon');
+// dogImageSearch.getResults('papillon');
 
 
 

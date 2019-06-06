@@ -1,6 +1,15 @@
 import './searchImageComponent.css';
 // #LearnAbout: oop vs composition , vagy composition over inheritance...!!!
 class SearchImage {
+  // tartalom törlésére
+  clearContent() {
+    
+  }
+  // hiba üzenet megjelenítésére
+  displayError(message) {
+
+  }
+
   async getResults(dogbreed) {
     const urlString = 'https://dog.ceo/api/breed/'+dogbreed+'/images';
     const response = await fetch(urlString);
